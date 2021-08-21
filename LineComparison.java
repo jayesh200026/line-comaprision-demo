@@ -21,13 +21,16 @@ public class LineComparison{
     y22=reader.nextInt();
     distance2=Math.sqrt((x22-x21)*(x22-x21)+(y22-y21)*(y22-y21));
     
-    if((String.valueOf(distance1)).equals(String.valueOf(distance2)))
+    if((String.valueOf(distance1)).compareTo(String.valueOf(distance2))==0)
 		{
 			System.out.println("Two lines are equal");
 		}
-    else{
-         System.out.println("Two lines are not equal");
+    else if((String.valueOf(distance1)).compareTo(String.valueOf(distance2))>0) {
+         System.out.println("Line1 is greater than Line2");
       }
+	else{
+			System.out.println("Line1 is lesser than Line2");
+	}
 
     System.out.println("The length of the line1 is:"+String.format("%.4f",distance1));
     System.out.println("The length of the line2 is:"+String.format("%.4f",distance2));
