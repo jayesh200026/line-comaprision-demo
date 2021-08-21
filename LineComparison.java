@@ -4,16 +4,32 @@ import java.lang.Math;
 public class LineComparison{
   public static void main(String args[])
   {
-    int x1,y1,x2,y2;
-    double distance;
-    System.out.println("Welcome to line comaprison computation");
-    System.out.println("Enter the line coordination");
+    int x11,y11,x12,y12,x21,y21,x22,y22;
+    double distance1,distance2;
     Scanner reader=new Scanner(System.in);
-    x1=reader.nextInt();
-    y1=reader.nextInt();
-    x2=reader.nextInt();
-    y2=reader.nextInt();
-	 distance=Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
-    System.out.println("The length of the line is:"+String.format("%.4f",distance));
+    System.out.println("Welcome to line comaprison computation");
+    System.out.println("Enter the coordinates of line 1");
+    x11=reader.nextInt();
+    y11=reader.nextInt();
+    x12=reader.nextInt();
+    y12=reader.nextInt();
+	 distance1=Math.sqrt((x12-x11)*(x12-x11)+(y12-y11)*(y12-y11));
+    System.out.println("Enter the coordinates of line 2");
+    x21=reader.nextInt();
+    y21=reader.nextInt();
+    x22=reader.nextInt();
+    y22=reader.nextInt();
+    distance2=Math.sqrt((x22-x21)*(x22-x21)+(y22-y21)*(y22-y21));
+    
+    if((String.valueOf(distance1)).equals(String.valueOf(distance2)))
+		{
+			System.out.println("Two lines are equal");
+		}
+    else{
+         System.out.println("Two lines are not equal");
+      }
+
+    System.out.println("The length of the line1 is:"+String.format("%.4f",distance1));
+    System.out.println("The length of the line2 is:"+String.format("%.4f",distance2));
   }
 }
