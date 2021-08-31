@@ -1,3 +1,4 @@
+
 import java.util.*;
 import java.lang.Math;
 
@@ -9,16 +10,16 @@ class Line{
 	public void getCoordinates() {
 		Scanner r =new Scanner(System.in);
 		System.out.println("Enter the coordinates of line");
-		this.x1=r.nextInt();
-		this.y1=r.nextInt();
-		this.x2=r.nextInt();
-		this.y2=r.nextInt();
+		x1=r.nextInt();
+		y1=r.nextInt();
+		x2=r.nextInt();
+		y2=r.nextInt();
 	}
 	
 	
 	public void computeDistance()
 	{
-		this.distance=Math.sqrt((this.x2-this.x1)*(this.x2-this.x1)+(this.y2-this.y1)*(this.y2-this.y1));
+		distance=Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
 	}
 }
 
