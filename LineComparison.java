@@ -1,38 +1,71 @@
 import java.util.*;
 import java.lang.Math;
 
-public class LineComparison{
-  public static void main(String args[])
-  {
-    int x11,y11,x12,y12,x21,y21,x22,y22;
-    double distance1,distance2;
-    Scanner reader=new Scanner(System.in);
-    System.out.println("Welcome to line comaprison computation");
-    System.out.println("Enter the coordinates of line 1");
-    x11=reader.nextInt();
-    y11=reader.nextInt();
-    x12=reader.nextInt();
-    y12=reader.nextInt();
-	 distance1=Math.sqrt((x12-x11)*(x12-x11)+(y12-y11)*(y12-y11));
-    System.out.println("Enter the coordinates of line 2");
-    x21=reader.nextInt();
-    y21=reader.nextInt();
-    x22=reader.nextInt();
-    y22=reader.nextInt();
-    distance2=Math.sqrt((x22-x21)*(x22-x21)+(y22-y21)*(y22-y21));
-    
-    if((String.valueOf(distance1)).compareTo(String.valueOf(distance2))==0)
-		{
-			System.out.println("Two lines are equal");
-		}
-    else if((String.valueOf(distance1)).compareTo(String.valueOf(distance2))>0) {
-         System.out.println("Line1 is greater than Line2");
-      }
-	else{
-			System.out.println("Line1 is lesser than Line2");
+class Line{
+	
+	int x1,x2,y1,y2;
+	double distance;
+	
+	public void getCoordinates() {
+		Scanner r =new Scanner(System.in);
+		System.out.println("Enter the coordinates of line");
+		this.x1=r.nextInt();
+		this.y1=r.nextInt();
+		this.x2=r.nextInt();
+		this.y2=r.nextInt();
 	}
+	
+	
+	public void computeDistance()
+	{
+		this.distance=Math.sqrt((this.x2-this.x1)*(this.x2-this.x1)+(this.y2-this.y1)*(this.y2-this.y1));
+	}
+}
 
-    System.out.println("The length of the line1 is:"+String.format("%.4f",distance1));
-    System.out.println("The length of the line2 is:"+String.format("%.4f",distance2));
-  }
+public class LineComparison{
+	public static void main(String args[])
+	  {
+	    
+	    Line line1 =new Line();
+	    line1.getCoordinates();
+	    
+	    Line line2 =new Line();
+	    line2.getCoordinates();
+	    
+	    line1.computeDistance();
+	    line2.computeDistance();
+	    
+	    Double distance1 = line1.distance;
+	    Double distance2=line2.distance;
+	    
+	    LineComparison comparison = new LineComparison();
+	    
+	    comparison.usingEquals(distance1,distance2);
+	    comparison.usingCompareTo(distance1,distance2);
+	   
+	    System.out.println("The length of the line1 is:"+String.format("%.4f",distance1));
+	    System.out.println("The length of the line2 is:"+String.format("%.4f",distance2));
+	  }
+	 public void usingCompareTo(Double distance1,Double distance2)
+	    {
+	    	
+		    if(distance1.compareTo(distance2) > 0) {
+		    	System.out.println("Line1 is greater than Line2");
+		    }
+		    else if(distance1.compareTo(distance2) < 0)  {
+		    	System.out.println("Line1 is lesser than Line2");
+		    }
+	    }
+	 
+	 public void usingEquals(Double distance1,Double distance2)
+	 {
+		 if(distance1.equals(distance2))
+		 {
+			 System.out.println("Two lines are equal");
+		 }
+		 else
+		 {
+			 System.out.println("Two lines are not equal");
+		 }
+	 }
 }
